@@ -13,7 +13,7 @@ const app: Application = express();
 // Middleware to parse JSON bodies
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000',"http://localhost:5173", "https://munnatvislamic.org"],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'origin', 'accept'],
