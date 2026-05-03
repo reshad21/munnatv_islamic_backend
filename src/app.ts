@@ -13,7 +13,11 @@ const app: Application = express();
 // Middleware to parse JSON bodies
 app.use(
   cors({
-    origin: ['http://localhost:3000',"http://localhost:5173", "https://munnatvislamic.org"],
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:5173',
+      'https://munnatvislamic.org',
+    ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'origin', 'accept'],
@@ -49,14 +53,12 @@ app.use(globalErrorHandler);
 // 404 Not Found middleware
 app.use(notFoundErrorHandler);
 
-
-
 app.listen(5000, async () => {
-    try {
-      seedRoleAdmin();
-      console.log(`Server is running on port 5000`);
-    } catch (error) {
-      console.error('Failed to seed data:', error);
-    }
-    console.log(`Server is running on port ${5000}`);
-  });
+  try {
+    seedRoleAdmin();
+    console.log(`Server is running on port 5000`);
+  } catch (error) {
+    console.error('Failed to seed data:', error);
+  }
+  console.log(`Server is running on port ${5000}`);
+});
